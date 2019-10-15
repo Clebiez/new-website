@@ -8,7 +8,7 @@ const Nav = styled.nav`
         font-size: 1.4rem;
         display: inline-block;
         color: ${({ theme }) => theme.grey};
-        padding: 2.1rem 0;
+        padding: 1.5rem 0;
         font-variant: small-caps;
         margin-right: 1rem;
         margin-left: 1rem;

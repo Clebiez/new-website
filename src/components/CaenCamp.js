@@ -1,16 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import StyledLink from './common/Link';
 import Link from 'gatsby-link';
 
 const CaenCampContainer = styled.div`
-    align-items: center;
     background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @media (max-width: ${props => props.theme.mobileSize}) {
-        justify-content: center;
-    }
     h2 {
         font-size: 2.5rem;
         @media (max-width: ${props => props.theme.mobileSize}) {
@@ -28,7 +22,7 @@ const CaenCampContainer = styled.div`
 `;
 const Overview = styled.div`
     text-align: left;
-    width: 65%;
+    width: 100%;
     @media (max-width: ${props => props.theme.mobileSize}) {
         width: 95%;
     }
@@ -44,33 +38,45 @@ const Overview = styled.div`
 
 const Stats = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 6rem 2rem 0 2rem;
-    @media (max-width: ${props => props.theme.mobileSize}) {
-        display: none;
-    }
-`;
-
-const StyledLink = styled(Link)`
-    color: ${({ theme }) => theme.black};
-    display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
+`;
+
+const StatsItem = styled.div`
+    color: ${({ theme }) => theme.black};
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
     margin-bottom: 1rem;
-    -webkit-transition: color 0.2s;
-    &:hover {
-        color: crimson;
-    }
+    font-size: 1.1rem;
     span {
-        margin-left: 1rem;
-        font-size: 2rem;
+        padding-top: 0.5rem;
     }
 `;
 
-export default ({ talks, speakers, cccs, lightnings }) => (
+export default ({ talks, speakers, cccs }) => (
     <CaenCampContainer>
+        <Stats>
+            <StatsItem>
+                <i className="fa fa-user-o fa-5x" aria-hidden="true" />
+                <span>{speakers} speakers</span>
+                <StyledLink to="/speakers">Tous les speakers</StyledLink>
+            </StatsItem>
+            <StatsItem>
+                <i className="fa fa-bullhorn fa-5x" aria-hidden="true" />
+                <span>{talks} talks</span>
+                <StyledLink to="/talks">Tous les talks</StyledLink>
+            </StatsItem>
+            <StatsItem>
+                <i className="fa fa-keyboard-o fa-5x" aria-hidden="true" />
+                <span>{cccs} codings</span>
+                <StyledLink to="/coding-caen-camp">Tous les codings</StyledLink>
+            </StatsItem>
+        </Stats>
         <Overview>
             <h2>Qu’est-ce que les CaenCamp.s ?</h2>
             <p>
@@ -112,23 +118,5 @@ export default ({ talks, speakers, cccs, lightnings }) => (
                 <strong>2012</strong>.
             </p>
         </Overview>
-        <Stats>
-            <StyledLink to="/speakers">
-                <i className="fa fa-user-o fa-5x" aria-hidden="true" />
-                <span>{speakers} speakers</span>
-            </StyledLink>
-            <StyledLink to="/talks">
-                <i className="fa fa-bullhorn fa-5x" aria-hidden="true" />
-                <span>{talks} talks</span>
-            </StyledLink>
-            <StyledLink to="/talks">
-                <i className="fa fa-bolt fa-5x" aria-hidden="true" />
-                <span>{lightnings} lightning talks</span>
-            </StyledLink>
-            <StyledLink to="/coding-caen-camp">
-                <i className="fa fa-keyboard-o fa-5x" aria-hidden="true" />
-                <span>{cccs} CCC</span>
-            </StyledLink>
-        </Stats>
     </CaenCampContainer>
 );
