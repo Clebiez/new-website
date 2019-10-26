@@ -12,10 +12,11 @@ import {
     formatTalkWithLightningsAndSpeakers,
 } from '../utils/formatters';
 import TalkListItem from '../components/talks/listItem';
-import { CampListItem } from '../components/cccs/listItem';
+import { CampListItem } from '../components/cccs/list-item';
+import Hero from '../components/Hero';
 import DevopsListItem from '../components/ccds/listItem';
 import CaenCamp from '../components/CaenCamp';
-import Layout from '../components/layout';
+import Layout from '../components/layouts/fullPageLayout';
 
 const TalksContainer = styled.div`
     display: flex;
@@ -75,6 +76,7 @@ export default ({ data }) => {
                 </Helmet>
                 <Content id="homeContent">
                     <SingleColumn>
+                        <Hero />
                         <CaenCamp
                             cccs={data.cccs.edges.length}
                             dojos={data.dojos.edges.length}
