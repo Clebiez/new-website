@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'gatsby-link';
 import HeroBackground from '../../static/heroBackground.jpeg';
 
 const Wrapper = styled.div`
@@ -8,15 +7,15 @@ const Wrapper = styled.div`
     height: 500px;
     background-image: url(${HeroBackground});
     background-size: cover;
-
+    background-position: 100% 60%;
 `;
 
 const GhostWrapper = styled.div`
     height: 100%;
-    background-color: #00000060;
+    width: 100%;
+    background-color: #00000070;
 
     h1 {
-        padding-top: 50px;
         text-align: center;
         font-size: 3rem;
         color: white;
@@ -31,22 +30,19 @@ const GhostWrapper = styled.div`
 
 const Content = styled.div`
     display: flex;
+    height: 100%;
     justify-content: center;
-    align-items: center;
-
-
     @media (max-width: ${props => props.theme.mobileSize}) {
-        display: block;
+        flex-wrap: wrap;
     }
 `;
 
 const TitleContent = styled.div`
     height: 100%;
-    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
-    margin-left: 50px;
+    padding: 20px;
 
     p {
         font-size: 2rem;
@@ -60,38 +56,43 @@ const TitleContent = styled.div`
     }
 `;
 
+const DiagonalDivider = styled.div`
+    width: 0;
+    left: 0;
+    border-right: 100px solid white;
+    border-top: 500px solid transparent;
+`;
+
 const UpcomingEventWrapper = styled.div`
     width: 60%;
-    margin-left: 80px;
+    height: 100%;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    color: black;
+    padding: 3rem;
+    padding-top: 4rem;
+
     h2 {
         text-align: center;
         font-size: 2rem;
-        color: white;
     }
     p {
-        color: white;
     }
 `;
 
-export default () => (
+export default ({ children }) => (
     <Wrapper>
         <GhostWrapper>
-            <h1>Les Caen camps</h1>
             <Content>
                 <TitleContent>
+                    <h1>Les Caen camps</h1>
                     <p>Communauté Caennaise de développeur-euses.</p>
                     <p>
                         Conférence chaque dernier mardi du mois accessible à toutes et à tous.
                     </p>
                 </TitleContent>
+                <DiagonalDivider />
                 <UpcomingEventWrapper>
-                    <h2></h2>
-                    <p>Le 23 Octobre à 19h</p>
-                    <p>Forum digital</p>
+                    {children}
                 </UpcomingEventWrapper>
             </Content>
         </GhostWrapper>

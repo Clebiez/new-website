@@ -76,7 +76,26 @@ export default ({ data }) => {
                 </Helmet>
                 <Content id="homeContent">
                     <SingleColumn>
-                        <Hero />
+                        <Hero>
+                            {nextTalk && (
+                                <TalksContainer>
+                                    <h2>Prochain talk</h2>
+                                    <TalkListItem talk={nextTalk} />
+                                </TalksContainer>
+                            )}
+                            {nextDevops && (
+                                <TalksContainer>
+                                    <h2>Prochain CaenCamp Devops</h2>
+                                    <DevopsListItem edition={nextDevops} />
+                                </TalksContainer>
+                            )}
+                            {nextCamp && (
+                                <TalksContainer>
+                                    <h2>Prochain coding caen camp</h2>
+                                    <CampListItem camp={nextCamp} />
+                                </TalksContainer>
+                            )}
+                        </Hero>
                         <CaenCamp
                             cccs={data.cccs.edges.length}
                             dojos={data.dojos.edges.length}
@@ -85,24 +104,6 @@ export default ({ data }) => {
                             speakers={data.speakers.edges.length}
                             talks={talks[0].edition}
                         />
-                        {nextTalk && (
-                            <TalksContainer>
-                                <h2>Prochain talk</h2>
-                                <TalkListItem talk={nextTalk} />
-                            </TalksContainer>
-                        )}
-                        {nextDevops && (
-                            <TalksContainer>
-                                <h2>Prochain CaenCamp Devops</h2>
-                                <DevopsListItem edition={nextDevops} />
-                            </TalksContainer>
-                        )}
-                        {nextCamp && (
-                            <TalksContainer>
-                                <h2>Prochain coding caen camp</h2>
-                                <CampListItem camp={nextCamp} />
-                            </TalksContainer>
-                        )}
                         {lastTalk && (
                             <TalksContainer>
                                 <h2>Dernier talk</h2>

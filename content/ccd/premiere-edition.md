@@ -3,7 +3,7 @@ edition: 1
 meetupId: 265997846
 title: "Édition 1"
 slug: "edition-1"
-date: "2019-11-06 18:30:00"
+date: "2019-11-08 18:30:00"
 description: "Présentation de HashiCorp Consul et retour d'expériences sur Clever Cloud"
 talks:
     - title: Présentation de HashiCorp Consul
