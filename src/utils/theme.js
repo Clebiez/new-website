@@ -31,6 +31,7 @@ export default {
     grey: '#696969',
     greyDark: '#262626',
     blue: '#193744',
+    blueLight: '#1565c0',
     green: '#1E8804',
     mobileSize: '799px'
 };
