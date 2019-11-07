@@ -61,10 +61,13 @@ const DiagonalDivider = styled.div`
     left: 0;
     border-right: 100px solid white;
     border-top: 500px solid transparent;
+    @media (max-width: ${props => props.theme.mobileSize}) {
+        display: none;
+    }
 `;
 
 const UpcomingEventWrapper = styled.div`
-    width: 60%;
+    width: 40%;
     height: 100%;
     background-color: white;
     color: black;
@@ -87,13 +90,12 @@ export default ({ children }) => (
                     <h1>Les Caen camps</h1>
                     <p>Communauté Caennaise de développeur-euses.</p>
                     <p>
-                        Conférence chaque dernier mardi du mois accessible à toutes et à tous.
+                        Conférence chaque dernier mardi du mois accessible à
+                        toutes et à tous.
                     </p>
                 </TitleContent>
                 <DiagonalDivider />
-                <UpcomingEventWrapper>
-                    {children}
-                </UpcomingEventWrapper>
+                <UpcomingEventWrapper>{children}</UpcomingEventWrapper>
             </Content>
         </GhostWrapper>
     </Wrapper>
