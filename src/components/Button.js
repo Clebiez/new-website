@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -18,4 +19,9 @@ const StyledLink = styled(props => <Link {...props} />)`
 const Button = ({ to, children }) => (
     <StyledLink to={to}>{children}</StyledLink>
 );
+
+Button.propTypes = {
+    to: PropTypes.string.isRequired,
+};
+
 export default Button;
