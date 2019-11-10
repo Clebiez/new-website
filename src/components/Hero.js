@@ -8,6 +8,9 @@ const Wrapper = styled.div`
     background-image: url(${HeroBackground});
     background-size: cover;
     background-position: 100% 60%;
+    @media (max-width: ${props => props.theme.mobileSize}) {
+        height: auto;
+    }
 `;
 
 const GhostWrapper = styled.div`
@@ -42,7 +45,7 @@ const TitleContent = styled.div`
     display: flex;
     justify-content: start;
     flex-direction: column;
-    padding: 20px;
+    padding: 40px;
 
     p {
         font-size: 2rem;
@@ -67,18 +70,28 @@ const DiagonalDivider = styled.div`
 `;
 
 const UpcomingEventWrapper = styled.div`
-    width: 40%;
+    width: 60%;
+    min-width: 320px;
     height: 100%;
     background-color: white;
     color: black;
     padding: 3rem;
-    padding-top: 4rem;
+    padding-top: 5rem;
+    margin: auto;
+    text-align: center;
 
     h2 {
-        text-align: center;
         font-size: 2rem;
     }
-    p {
+
+    a {
+        display: inline-block;
+        margin-top: 3rem;
+    }
+    @media (max-width: ${props => props.theme.mobileSize}) {
+        width: 100%;
+        padding-top: 0;
+
     }
 `;
 

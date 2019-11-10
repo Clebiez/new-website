@@ -12,7 +12,12 @@ import theme, { GlobalStyle } from '../../utils/theme';
 const Container = styled.div`
     height: 100%;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 33px;
+`;
+
+export const MaxWidthContent = styled.div`
+    max-width: 900px;
+    margin: auto;
 `;
 
 const Header = styled.header`
